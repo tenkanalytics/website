@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Pages Site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🎉 Hello, GitHub Pages!</h1>
+        <p>If you're seeing this, your website is working.</p>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Congratulations!</h2>
+            <p>
+                You have successfully published a static website using
+                GitHub Pages.
+            </p>
+
+            <button onclick="showMessage()">
+                Click Me
+            </button>
+
+            <p id="message"></p>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 10K Analytics, LLC
+    </footer>
+
+    <script>
+        function showMessage() {
+            document.getElementById("message").innerHTML =
+                "🚀 JavaScript is working too!";
+        }
+    </script>
+
+</body>
+</html>
