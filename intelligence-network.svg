@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 900 900"
+    width="900"
+    height="900">
+
+<!-- =======================================================
+     DEFINITIONS
+======================================================= -->
+
+<defs>
+
+
+<radialGradient id="coreGradient">
+
+    <stop offset="0%" stop-color="#FFFFFF"/>
+
+    <stop offset="35%" stop-color="#F4FFB2"/>
+
+    <stop offset="70%" stop-color="#D8F54A"/>
+
+    <stop offset="100%" stop-color="#8EA500"/>
+
+</radialGradient>
+
+<linearGradient
+    id="packetGradient"
+    x1="0%"
+    y1="0%"
+    x2="100%"
+    y2="100%">
+
+    <stop offset="0%" stop-color="#FFFFFF"/>
+
+    <stop offset="100%" stop-color="#D8F54A"/>
+
+</linearGradient>
+
+
+
+<filter id="greenGlow">
+
+    <feGaussianBlur stdDeviation="6" result="blur"/>
+
+    <feMerge>
+
+        <feMergeNode in="blur"/>
+
+        <feMergeNode in="SourceGraphic"/>
+
+    </feMerge>
+
+</filter>
+
+
+
+<symbol id="node">
+
+    <circle r="7"
+        fill="#79838C"/>
+
+</symbol>
+
+
+<symbol id="activeNode">
+
+    <circle r="9"
+        fill="#D8F54A"
+        filter="url(#greenGlow)"/>
+
+</symbol>
+
+
+
+<symbol id="outputNode">
+
+    <polygon
+        points="0,-8 8,0 0,8 -8,0"
+        fill="#D8F54A"
+        filter="url(#greenGlow)"/>
+
+</symbol>
+
+
+
+<symbol id="packet">
+
+    <polygon
+        points="0,-3 3,-1 3,2 0,4 -3,2 -3,-1"
+        fill="url(#packetGradient)"/>
+
+</symbol>
+
+<style>
+
+.connection{
+
+    stroke:#76818A;
+
+    stroke-width:2;
+
+    fill:none;
+
+    opacity:.28;
+
+    stroke-linecap:round;
+
+}
+
+</style>
+
+</defs>
+
+<!-- =======================================================
+     BACKGROUND GRID
+======================================================= -->
+
+<g opacity=".08">
+
+<path d="M0 100 H900" stroke="white"/>
+<path d="M0 200 H900" stroke="white"/>
+<path d="M0 300 H900" stroke="white"/>
+<path d="M0 400 H900" stroke="white"/>
+<path d="M0 500 H900" stroke="white"/>
+<path d="M0 600 H900" stroke="white"/>
+<path d="M0 700 H900" stroke="white"/>
+<path d="M0 800 H900" stroke="white"/>
+
+<path d="M100 0 V900" stroke="white"/>
+<path d="M200 0 V900" stroke="white"/>
+<path d="M300 0 V900" stroke="white"/>
+<path d="M400 0 V900" stroke="white"/>
+<path d="M500 0 V900" stroke="white"/>
+<path d="M600 0 V900" stroke="white"/>
+<path d="M700 0 V900" stroke="white"/>
+<path d="M800 0 V900" stroke="white"/>
+
+</g>
+
+<!-- =======================================================
+     CONNECTION PATHS
+======================================================= -->
+
+<g class="connection">
+
+<path id="flowA"
+d="M150 220
+C250 180
+320 200
+450 450"/>
+
+<path id="flowB"
+d="M200 650
+C320 610
+390 570
+450 450"/>
+
+<path id="flowC"
+d="M450 450
+C560 360
+640 300
+760 240"/>
+
+<path id="flowD"
+d="M450 450
+C590 520
+660 560
+760 660"/>
+
+</g>
+
+<!-- =======================================================
+     NODES
+======================================================= -->
+
+<use href="#node" x="150" y="220"/>
+
+<use href="#node" x="220" y="300"/>
+
+<use href="#node" x="250" y="520"/>
+
+<use href="#node" x="200" y="650"/>
+
+<use href="#activeNode" x="340" y="240"/>
+
+<use href="#activeNode" x="370" y="600"/>
+
+<use href="#outputNode" x="760" y="240"/>
+
+<use href="#outputNode" x="760" y="660"/>
+
+<!-- =======================================================
+     AI CORE
+======================================================= -->
+
+<g id="ai-core" transform="translate(450 450)">
+
+    <!-- Soft glow -->
+
+    <circle
+        r="34"
+        fill="#D8F54A"
+        opacity=".08">
+
+        <animate
+            attributeName="r"
+            values="32;38;32"
+            dur="5s"
+            repeatCount="indefinite"/>
+
+        <animate
+            attributeName="opacity"
+            values=".05;.12;.05"
+            dur="5s"
+            repeatCount="indefinite"/>
+
+    </circle>
+
+    <!-- Main ring -->
+
+    <circle
+        r="16"
+        fill="none"
+        stroke="#D8F54A"
+        stroke-width="2"/>
+
+    <!-- Inner sphere -->
+
+    <circle
+        r="8"
+        fill="url(#coreGradient)"
+        filter="url(#greenGlow)"/>
+
+    <!-- Center -->
+
+    <circle
+        r="3"
+        fill="#FFFFFF"/>
+
+</g>
+
+<!-- =======================================================
+     DATA PACKETS
+======================================================= -->
+
+<use href="#packet">
+
+<animateMotion
+dur="5s"
+repeatCount="indefinite">
+
+<mpath href="#flowA"/>
+
+</animateMotion>
+
+</use>
+
+<use href="#packet">
+
+<animateMotion
+begin="2.2s"
+dur="6s"
+repeatCount="indefinite">
+
+<mpath href="#flowB"/>
+
+</animateMotion>
+
+</use>
+
+<use href="#packet">
+
+<animateMotion
+begin="5s"
+dur="5s"
+repeatCount="indefinite">
+
+<mpath href="#flowC"/>
+
+</animateMotion>
+
+</use>
+
+<use href="#packet">
+
+<animateMotion
+begin="7s"
+dur="6s"
+repeatCount="indefinite">
+
+<mpath href="#flowD"/>
+
+</animateMotion>
+
+</use>
+
+</svg>
